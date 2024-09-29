@@ -1,1 +1,2 @@
 # KisanMitra
+Kiasan Mitra is a web application that connects farmers directly to customers, promoting sustainable agriculture. It features product management, a shopping cart, and integrated tools like a chatbot for instant support, a crop predictor for optimal farming decisions, and a news checker for the latest agricultural trends. By bridging the gap between farmers and consumers, Kiasan Mitra aims to enhance transparency and accessibility in the local marketplace.
