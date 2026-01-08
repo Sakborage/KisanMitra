@@ -1,0 +1,23 @@
+.section {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Small green text on top */
+.subTitle {
+  color: #10b981;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+/* Main title */
+.mainTitle {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}

@@ -1,0 +1,39 @@
+.card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-items: flex-start;
+}
+
+.card:hover {
+  border-color: #0b7a0b;
+  background: #f3faf3;
+}
+
+.card input {
+  margin-top: 4px;
+}
+
+.selected {
+  border-color: #063b00;
+  background: #e9f5e9;
+}
+
+.content {
+  flex: 1;
+}
+
+.name {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #063b00;
+}
+
+.phone {
+  font-size: 13px;
+  color: #444;
+}

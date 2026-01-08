@@ -1,0 +1,63 @@
+/* Apply to the whole app, or at least navbar container */
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  color: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px; /* reduced padding */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  overflow-x: hidden; /* ensure no horizontal scroll */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left Logo */
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Center Navigation */
+.navLinks {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  flex: 1;
+  justify-content: center; /* center align menu */
+}
+
+.navLinks li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.navLinks li a:hover {
+  color: #04a84e;
+}
+
+/* Right Cart */
+.cart {
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: auto; /* push it to extreme right */
+}
+
+.cart:hover {
+  color: #04a84e;
+}

@@ -1,0 +1,49 @@
+.card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+}
+
+.card h4 {
+  margin-bottom: 14px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Style labels as cards */
+.card label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+/* Radio button */
+.card input[type="radio"] {
+  accent-color: #2563eb;
+}
+
+/* Hover effect */
+.card label:hover {
+  background: #f9fafb;
+}
+
+/* Selected state (pure CSS) */
+.card input[type="radio"]:checked + span,
+.card input[type="radio"]:checked {
+  font-weight: 600;
+}
+
+/* Highlight selected option */
+.card label:has(input[type="radio"]:checked) {
+  border-color: #2563eb;
+  background: #eff6ff;
+}

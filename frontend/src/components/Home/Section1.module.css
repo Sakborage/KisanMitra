@@ -1,0 +1,140 @@
+/* Section1.module.css */
+
+.hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+  width: 100%;
+}
+
+/* content container - left aligned on wide screens, centered on small */
+.content {
+  max-width: 760px;
+  margin-left: clamp(0.75rem, 4vw, 2rem);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+/* Headline sizing scales smoothly with viewport */
+.content h1 {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1.02;
+  margin: 0 0 0.8rem 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+}
+
+/* subtext */
+.content p {
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 1.2rem 0;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  opacity: 0.95;
+}
+
+/* button row */
+.buttons {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Primary pill button */
+.primary {
+  background: #10b981; /* green focus */
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.12);
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+/* Ghost-style button (transparent) */
+.ghost {
+  background: transparent;
+  color: #10b981;
+  border: 2px solid rgba(16, 185, 129, 0.18);
+  padding: 0.56rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+/* hover: keep it subtle and avoid "green box" effect */
+.primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.96);
+}
+
+/* ghost on hover: only text/border changes, no filled green box */
+.ghost:hover {
+  color: #047857; /* slightly darker green on hover */
+  border-color: rgba(4, 120, 87, 0.32);
+  transform: translateY(-2px);
+}
+
+/* focus: keep focus visible but not a huge green fill.
+   For accessibility, we keep an outline but subtle. */
+.primary:focus,
+.ghost:focus {
+  outline: 3px solid rgba(16, 185, 129, 0.14);
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+/* Responsive rules: on smaller screens center the content */
+@media (max-width: 880px) {
+  .overlay {
+    padding: clamp(2rem, 6vw, 4rem) 1.25rem;
+    justify-content: center;
+  }
+
+  .content {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 65vh;
+  }
+
+  .content h1 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    line-height: 1.08;
+  }
+
+  .buttons {
+    gap: 0.5rem;
+  }
+
+  .primary,
+  .ghost {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .ghost {
+    border-width: 1.5px;
+  }
+}

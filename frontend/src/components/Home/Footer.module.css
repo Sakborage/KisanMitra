@@ -1,0 +1,128 @@
+.footer {
+  width: 100%;
+  background: #063b00;
+  color: white;
+  padding: 3rem 1rem;
+  margin-top: 0px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Each column */
+.col {
+  flex: 1;
+  min-width: 230px;
+}
+
+/* Column 1 */
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #a1ff8a;
+}
+
+.text {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.follow {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.socials a {
+  margin-right: 14px;
+  color: #a1ff8a;
+  font-weight: bold;
+}
+
+/* Column headings */
+.heading {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #d5ffd0;
+}
+
+/* Links */
+.links {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.links li:hover {
+  opacity: 1;
+  color: #a1ff8a;
+}
+
+/* Latest posts */
+.post {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.post img {
+  width: 55px;
+  height: 55px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.postTitle {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Newsletter */
+.newsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.newsBox input {
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.newsBox button {
+  padding: 10px;
+  background: #d5ff6d;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}

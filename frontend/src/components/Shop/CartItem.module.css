@@ -1,0 +1,67 @@
+.item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.image {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.info h4 {
+  font-size: 15px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.info span {
+  font-size: 13px;
+  color: #666;
+}
+
+.price {
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  background: #0b7a0b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.counter button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  width: 36px;
+  cursor: pointer;
+}
+
+.counter span {
+  color: #fff;
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .item {
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .counter {
+    grid-column: span 2;
+    justify-self: flex-end;
+  }
+}

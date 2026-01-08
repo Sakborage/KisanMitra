@@ -1,0 +1,57 @@
+.container {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.heading {
+  margin-bottom: 20px;
+  color: #063b00;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.item:hover {
+  background-color: #f3f8f3;
+}
+
+.rank {
+  font-weight: 700;
+  color: #063b00;
+}
+
+.product {
+  font-weight: 500;
+  color: #333333;
+}
+
+.count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 4px 10px;
+  border-radius: 12px;
+}

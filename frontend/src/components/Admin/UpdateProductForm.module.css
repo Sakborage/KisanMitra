@@ -1,0 +1,113 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h3 {
+  color: #063b00;
+  margin-bottom: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.listSection {
+  margin-bottom: 16px;
+}
+
+.listSection label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.listRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.listRow input {
+  flex: 1;
+}
+
+.listRow button {
+  background: #eee;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.listSection > button {
+  margin-top: 6px;
+  background: none;
+  border: none;
+  color: #063b00;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.actions button:first-child {
+  background-color: #063b00;
+  color: #fff;
+}
+
+.actions button:last-child {
+  background-color: #ccc;
+}

@@ -1,0 +1,164 @@
+/* Page Layout */
+.page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.page h2 {
+  margin-bottom: 24px;
+  color: #063b00;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Label + Input */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: #0a7c1f;
+  box-shadow: 0 0 0 2px rgba(10, 124, 31, 0.15);
+}
+
+/* Row for price / weight / stock */
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Product Details & Cautions */
+.listSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listSection label {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Each list row */
+.listRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.listRow input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.listRow button {
+  background: #ffe5e5;
+  border: none;
+  color: #b00020;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 6px 10px;
+  transition: background 0.2s ease;
+}
+
+.listRow button:hover {
+  background: #ffcaca;
+}
+
+/* Add detail / caution button */
+.listSection > button {
+  align-self: flex-start;
+  padding: 6px 12px;
+  background: #f1f5f1;
+  border: 1px dashed #0a7c1f;
+  color: #0a7c1f;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.listSection > button:hover {
+  background: #e6f4ea;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 12px 24px;
+  background: #0a7c1f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.actions button:hover {
+  background: #086418;
+}
+
+.actions button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    margin: 20px;
+    padding: 20px;
+  }
+}

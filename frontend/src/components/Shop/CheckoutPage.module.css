@@ -1,0 +1,41 @@
+.page {
+  padding: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.page h2 {
+  margin-bottom: 20px;
+  color: #063b00;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* Left & Right sections */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right {
+  position: sticky;
+  top: 90px;
+  height: fit-content;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .right {
+    position: static;
+  }
+}

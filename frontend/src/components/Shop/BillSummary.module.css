@@ -1,0 +1,41 @@
+.bill {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.bill h4 {
+  margin-bottom: 12px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.free {
+  color: green;
+  font-weight: 600;
+}
+
+.total {
+  margin-top: 12px;
+  background: #0a7a0a;
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}

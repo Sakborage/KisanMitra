@@ -1,0 +1,99 @@
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  text-align: center;
+  color: #063b00;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  text-align: center;
+  color: #4f7f4f;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #063b00;
+}
+
+.field input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cfd8cf;
+  font-size: 14px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #063b00;
+}
+
+.signupBtn {
+  margin-top: 12px;
+  background-color: #063b00;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signupBtn:hover {
+  background-color: #052f00;
+}
+
+.error {
+  background: #ffe6e6;
+  color: #c62828;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footerText {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.footerText span {
+  color: #063b00;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.footerText span:hover {
+  text-decoration: underline;
+}

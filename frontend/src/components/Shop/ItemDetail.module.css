@@ -1,0 +1,127 @@
+.pageContainer {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* LEFT SECTION */
+.leftSection {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productImg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+.actionButtons {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.addToCart {
+  flex: 1;
+
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #45cf05;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buyNow {
+  flex: 1;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #028021;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* RIGHT SECTION (SCROLLABLE LIKE FLIPKART) */
+.rightSection {
+  width: 55%;
+  height: 80vh; /* keeps right side scrollable */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.ratingBox {
+  font-size: 14px;
+  color: #018f4a;
+  margin-bottom: 10px;
+}
+
+.priceBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+}
+
+.mrp {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.off {
+  color: #018f4a;
+  font-weight: 600;
+}
+
+.detailsList {
+  margin: 0;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.detailsList li {
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .pageContainer {
+    flex-direction: column;
+  }
+
+  .leftSection,
+  .rightSection {
+    width: 100%;
+  }
+
+  .rightSection {
+    height: auto;
+    overflow: visible;
+  }
+}
