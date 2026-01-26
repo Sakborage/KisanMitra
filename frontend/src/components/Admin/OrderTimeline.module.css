@@ -1,0 +1,100 @@
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+/* title */
+.card h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #063b00;
+  margin-bottom: 16px;
+}
+
+/* timeline container */
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* wrapper for each step + line */
+.stepWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+/* connector line */
+.line {
+  height: 2px;
+  background: #e5e7eb;
+  flex: 1;
+}
+
+.activeLine {
+  background: #2e7d32;
+}
+
+/* step itself */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 80px;
+  z-index: 1;
+}
+
+/* dot */
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  border: 2px solid #e5e7eb;
+}
+
+/* label */
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+/* active step */
+.active .dot {
+  background: #2e7d32;
+  border-color: #2e7d32;
+}
+
+.active .label {
+  color: #063b00;
+  font-weight: 700;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .stepWrapper {
+    flex-direction: row;
+  }
+
+  .line {
+    width: 30px;
+    height: 2px;
+  }
+
+  .step {
+    flex-direction: row;
+    gap: 10px;
+  }
+}

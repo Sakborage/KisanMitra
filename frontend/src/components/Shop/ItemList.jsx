@@ -19,6 +19,8 @@ const ItemList = ({ items, loading }) => {
             vendor={item.vendor}
             weight={item.weight}
             price={item.price}
+            status={item.status}
+            stock={item.stock}
           />
         ))
       ) : (

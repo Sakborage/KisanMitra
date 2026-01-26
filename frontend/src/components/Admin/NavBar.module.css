@@ -1,4 +1,4 @@
-/* Apply to the whole app, or at least navbar container */
+/* Apply to the whole app */
 * {
   box-sizing: border-box;
 }
@@ -13,10 +13,9 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 20px; /* reduced padding */
+  padding: 0 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
-  overflow-x: hidden; /* ensure no horizontal scroll */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -29,13 +28,13 @@
   cursor: pointer;
 }
 
-/* Center Navigation */
+/* Center Navigation (UNCHANGED) */
 .navLinks {
   display: flex;
   gap: 25px;
   list-style: none;
   flex: 1;
-  justify-content: center; /* center align menu */
+  justify-content: center;
 }
 
 .navLinks li a {
@@ -50,14 +49,47 @@
   color: #04a84e;
 }
 
-/* Right Cart */
-.cart {
-  font-size: 22px;
+/* Hamburger (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 26px;
   cursor: pointer;
-  transition: color 0.3s ease;
-  margin-left: auto; /* push it to extreme right */
 }
 
-.cart:hover {
-  color: #04a84e;
+/* =======================
+   MOBILE ONLY OVERRIDES
+======================= */
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 14px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Override ONLY on mobile */
+  .navLinks {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+    padding: 16px 0;
+
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
 }

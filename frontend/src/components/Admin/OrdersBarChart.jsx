@@ -7,23 +7,24 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-function OrderBarChart() {
-  const data = [
-    { category: "Seeds", orders: 60 },
-    { category: "Fertilizers", orders: 45 },
-    { category: "Equipment", orders: 30 },
-  ];
+function OrderBarChart({ ordersByCategory }) {
+  console.log(ordersByCategory);
   return (
     <>
       <div className={styles.wrapper}>
         <h3 className={styles.heading}>Orders by Category</h3>
         <div className={styles.chartContainer}>
           <ResponsiveContainer width="100%" height={320}>
-            <BarChart data={data}>
+            <BarChart data={ordersByCategory}>
               <XAxis dataKey="category" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="orders" fill="#9ccc65" radius={[6, 6, 0, 0]} />
+              <Bar
+                dataKey="orderCount"
+                fill="#9ccc65"
+                stroke="none"
+                radius={[6, 6, 0, 0]}
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>

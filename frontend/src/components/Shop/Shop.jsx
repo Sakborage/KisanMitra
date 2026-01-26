@@ -5,12 +5,28 @@ import SearchBar from "./SearchBar";
 import PromoSection from "./PromoSection";
 import ItemList from "./ItemList";
 import { Outlet } from "react-router-dom";
+import { useCart } from "../CartContext";
+import { fetchCartCount } from "../fetchCartCount";
 
 function Shop() {
+  const { setCartCount } = useCart();
+
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    loadCount();
+  }, []);
+
+  const loadCount = async () => {
+    try {
+      const count = await fetchCartCount();
+      setCartCount(count);
+    } catch {
+      setCartCount(0);
+    }
+  };
   useEffect(() => {
     setLoading(true);
 

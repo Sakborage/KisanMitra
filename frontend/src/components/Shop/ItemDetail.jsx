@@ -2,14 +2,17 @@ import React from "react";
 import styles from "./ItemDetail.module.css";
 import RatingSection from "./RatingSection";
 import axios from "axios";
+import { useCart } from "../CartContext";
+import { fetchCartCount } from "../fetchCartCount";
 
 const formatWeight = (weight) => {
   if (!weight) return "";
   return weight >= 1000 ? `${(weight / 1000).toFixed(1)} kg` : `${weight} g`;
 };
 
-function ItemDetail({ product }) {
+function ItemDetail({ product, rating }) {
   if (!product) return null;
+  const { cartCount, setCartCount } = useCart();
 
   const handleAddToCart = async () => {
     try {
@@ -21,6 +24,10 @@ function ItemDetail({ product }) {
         withCredentials: true,
       });
       alert("Product added to cart");
+
+      const count = await fetchCartCount();
+      console.log(count);
+      setCartCount(count);
     } catch (err) {
       console.error("Add to cart failed", err);
       alert("Please login to add product to cart");
@@ -70,7 +77,8 @@ function ItemDetail({ product }) {
         <p className={styles.description}>{product.description}</p>
 
         <div className={styles.ratingBox}>
-          ⭐ <span>4.5</span> | 128 Ratings
+          ⭐ <span>{product.avgRating / product.ratingCount}</span> |{" "}
+          {product.ratingCount} Ratings
         </div>
 
         <div className={styles.priceBox}>
@@ -100,8 +108,12 @@ function ItemDetail({ product }) {
             <li>No cautions listed</li>
           )}
         </ul>
+        <div className={styles.ratingBox}>
+          ⭐ <span>{rating?.avgRating || 0}</span> | {rating?.ratingCount || 0}{" "}
+          Ratings
+        </div>
 
-        <RatingSection />
+        <RatingSection rating={rating} />
       </div>
     </div>
   );

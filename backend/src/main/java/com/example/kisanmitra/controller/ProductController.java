@@ -17,18 +17,7 @@ public class ProductController {
     @Autowired
     ProductService service;
 
-    @PostMapping("product")
-    public ResponseEntity<Product> add(@RequestBody Product product)
-    {
-        System.out.println("Post Method called");
-         Product saved=service.addProduct(product);
-         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
-    }
 
-    @DeleteMapping("product/{id}")
-    public void deleteitem(@PathVariable int id){
-        service.deleteProduct(id);
-    }
 
     @GetMapping("products")
     public List<Product> getAllProducts(){
@@ -48,12 +37,7 @@ public class ProductController {
     }
 
 
-    @PutMapping("product")
-    public ResponseEntity<Product> updateProduct(@RequestBody Product product) throws BadRequestException {
-        Product updated= service.updateProduct(product);
-        return ResponseEntity.ok(updated);
 
-    }
 
     @GetMapping("/product/{id}/similar")
     public List<Product> getSimilarProducts(@PathVariable int id){

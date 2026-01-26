@@ -1,0 +1,12 @@
+.page {
+  padding: 24px;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.page h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #063b00;
+  margin-bottom: 20px;
+}

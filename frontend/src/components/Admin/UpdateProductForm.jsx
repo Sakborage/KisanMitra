@@ -42,7 +42,9 @@ function UpdateProductForm({ product, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/product`, formData);
+      await axios.put(`http://localhost:8080/admin/product`, formData, {
+        withCredentials: true,
+      });
       onClose();
       window.location.reload();
     } catch (err) {

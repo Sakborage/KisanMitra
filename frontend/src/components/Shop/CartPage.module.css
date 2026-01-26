@@ -84,3 +84,32 @@
     padding: 12px;
   }
 }
+
+.emptyCart {
+  width: 100%;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.emptyCart h2 {
+  margin-bottom: 8px;
+}
+
+.emptyCart p {
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.shopBtn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #0a5e01;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.shopBtn:hover {
+  background: #063b00;
+}

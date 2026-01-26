@@ -7,19 +7,19 @@ export default function FooterColumn3() {
       id: 1,
       title: "Press Statement",
       date: "23 Sep 2023",
-      image: "/images/a1.jpg",
+      image: "src/assets/images/art1.png",
     },
     {
       id: 2,
       title: "Farmers Day Release",
       date: "23 Sep 2023",
-      image: "/images/a2.jpg",
+      image: "src/assets/images/article2.png",
     },
     {
       id: 3,
       title: "Agriculture & Government",
       date: "22 Sep 2023",
-      image: "/images/a3.jpg",
+      image: "src/assets/images/article3.png",
     },
   ];
 

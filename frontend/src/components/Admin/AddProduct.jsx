@@ -45,9 +45,11 @@ function AddProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/product", formData);
+      await axios.post("http://localhost:8080/admin/product", formData, {
+        withCredentials: true,
+      });
       alert("Product added successfully");
-      navigate("/product");
+      navigate("/admin/product");
     } catch (err) {
       console.error("Add product failed", err);
     }

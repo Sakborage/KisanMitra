@@ -35,4 +35,10 @@ public class CartItemController {
         cartItemService.updateCartItem(cartItemId,quantity);
 
     }
+
+    @GetMapping("/cartCount")
+    public int getCount(){
+        return cartItemService.getCartItemCount();
+    }
+
 }

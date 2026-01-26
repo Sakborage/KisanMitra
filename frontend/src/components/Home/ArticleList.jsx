@@ -12,7 +12,7 @@ function ArticleList() {
         "Short summary about how to reach and help farmers with best practices.",
       date: "23 Sep 2023",
       comments: 0,
-      image: "/images/article1.jpg",
+      image: "src/assets/images/art1.png",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ function ArticleList() {
       excerpt: "An overview of recent environmental changes and crop impacts.",
       date: "23 Sep 2023",
       comments: 0,
-      image: "/images/article2.jpg",
+      image: "src/assets/images/article2.png",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ function ArticleList() {
       excerpt: "How trade and rules shape farming outcomes in the region.",
       date: "23 Sep 2023",
       comments: 0,
-      image: "/images/article3.jpg",
+      image: "src/assets/images/article3.png",
     },
   ];
 

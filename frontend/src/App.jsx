@@ -14,22 +14,46 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import CartPage from "./components/Shop/CartPage";
 import CheckoutPage from "./components/Shop/CheckoutPage";
+import AdminHome from "./components/Admin/AdminHome";
+import OrdersPage from "./components/Admin/OrderPage";
+import OrderDetailsPage from "./components/Admin/OrderDetailsPage";
+import UserOrdersPage from "./components/Shop/UserOrdersPage";
+import OrderDetailsPageUser from "./components/Shop/OrderDetailsPageUser";
+import OrderDetailsPageAdmin from "./components/Admin/OrderDetailsPageAdmin";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/product" element={<Product />} />
-          <Route path="product/new" element={<AddProduct />} />
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+          <Route path="/home" element={<Home />}></Route>
+
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop/:id" element={<ItemDetailsFinal />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
+
+          <Route path="/order" element={<UserOrdersPage />}></Route>
+          <Route
+            path="/order/:orderNumber"
+            element={<OrderDetailsPageUser />}
+          />
+
+          {/* <Route path="/product" element={<Product />} />
+          <Route path="product/new" element={<AddProduct />} /> */}
+
+          <Route path="/admin" element={<AdminHome />}></Route>
+
+          <Route path="/admin/product" element={<Product />}></Route>
+          <Route path="/admin/product/new" element={<AddProduct />} />
+          <Route path="/admin/order" element={<OrdersPage />}></Route>
+          <Route
+            path="/admin/order/:orderNumber"
+            element={<OrderDetailsPageAdmin />}
+          />
         </Routes>
       </BrowserRouter>
     </>

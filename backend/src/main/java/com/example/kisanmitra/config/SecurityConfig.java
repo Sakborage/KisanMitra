@@ -42,7 +42,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request->request.requestMatchers(
                         "/login",
                         "/signup"
-                ).permitAll().anyRequest().authenticated())
+                ).permitAll().requestMatchers("/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated())
                 .formLogin(form-> form.loginProcessingUrl("/login")
                         .usernameParameter("username")
                         .passwordParameter("password").permitAll().successHandler(((request, response, authentication) ->{

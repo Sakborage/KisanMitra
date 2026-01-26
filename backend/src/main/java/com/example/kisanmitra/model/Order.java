@@ -6,6 +6,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -17,13 +19,17 @@ public class Order {
         PENDING,
         PLACED,
         CANCELLED,
-        SHIPPED, DELIVERED
+        SHIPPED,
+        DELIVERED
     }
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
+    private String orderNumber;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
@@ -51,6 +57,7 @@ public class Order {
 
     @OneToOne(mappedBy = "order",cascade = CascadeType.ALL)
     private Payment payment;
+
 
     public int getId() {
         return id;
@@ -138,5 +145,13 @@ public class Order {
 
     public void setHandlingCharge(double handlingCharge) {
         this.handlingCharge = handlingCharge;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 }

@@ -1,36 +1,46 @@
 .rating-container {
   width: 100%;
-  background: #fff;
+  background: #ffffff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   margin-top: 20px;
 }
 
+/* Main Layout */
 .rating-main {
   display: flex;
   gap: 40px;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
+/* Left Section */
 .rating-left {
   text-align: center;
-  min-width: 100px;
+  min-width: 120px;
 }
 
 .avg {
-  font-size: 42px;
-  font-weight: bold;
+  font-size: 44px;
+  font-weight: 700;
   color: #2e7d32;
-  line-height: 40px;
+  line-height: 42px;
 }
 
 .star {
-  font-size: 26px;
+  font-size: 28px;
   color: #2e7d32;
+  margin-top: 2px;
 }
 
+.rating-left p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Right Section */
 .rating-bars {
   width: 100%;
 }
@@ -38,37 +48,59 @@
 .rating-row {
   display: flex;
   align-items: center;
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
 .label {
-  width: 30px;
+  width: 34px;
   font-size: 14px;
+  font-weight: 500;
   color: #333;
 }
 
+/* Progress Bar */
 .bar-bg {
-  background: #eee;
+  background: #eeeeee;
   flex: 1;
-  height: 8px;
+  height: 9px;
   border-radius: 20px;
-  margin: 0 8px;
+  margin: 0 10px;
   overflow: hidden;
 }
 
 .bar-fill {
   height: 100%;
   border-radius: inherit;
+  transition: width 0.4s ease-in-out;
 }
+
+/* Color per rating */
+.rating-row:nth-child(1) .bar-fill {
+  background: #2e7d32;
+} /* 5★ */
+.rating-row:nth-child(2) .bar-fill {
+  background: #66bb6a;
+} /* 4★ */
+.rating-row:nth-child(3) .bar-fill {
+  background: #ffa726;
+} /* 3★ */
+.rating-row:nth-child(4) .bar-fill {
+  background: #ff7043;
+} /* 2★ */
+.rating-row:nth-child(5) .bar-fill {
+  background: #ef5350;
+} /* 1★ */
 
 .count {
   font-size: 14px;
-  width: 20px;
+  width: 26px;
   text-align: right;
+  color: #333;
 }
 
+/* Footer Text */
 .review-text {
-  margin-top: 18px;
+  margin-top: 20px;
   color: #555;
   font-size: 14px;
 }
@@ -78,15 +110,20 @@
   .rating-main {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
   }
 
   .rating-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
   .avg {
-    font-size: 30px;
+    font-size: 32px;
+  }
+
+  .star {
+    font-size: 22px;
   }
 }

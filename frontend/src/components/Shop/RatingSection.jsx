@@ -1,34 +1,36 @@
 import React from "react";
 import "./RatingSection.css";
 
-const RatingSection = () => {
-  // Static sample data
-  const ratingStats = [
-    { stars: 5, count: 16, color: "#4caf50" },
-    { stars: 4, count: 5, color: "#8bc34a" },
-    { stars: 3, count: 1, color: "#cddc39" },
-    { stars: 2, count: 4, color: "#ff9800" },
-    { stars: 1, count: 2, color: "#f44336" },
-  ];
+const RatingSection = ({ rating }) => {
+  if (!rating || rating.ratingCount === 0) {
+    return <p className="review-text">No ratings yet</p>;
+  }
+  console.log(rating);
 
-  const totalRatings = ratingStats.reduce((sum, r) => sum + r.count, 0);
-  const avgRating = (
-    ratingStats.reduce((sum, r) => sum + r.stars * r.count, 0) / totalRatings
-  ).toFixed(1);
+  const ratingStats = [
+    { stars: 5, count: rating.fiveStar },
+    { stars: 4, count: rating.fourStar },
+    { stars: 3, count: rating.threeStar },
+    { stars: 2, count: rating.twoStar },
+    { stars: 1, count: rating.oneStar },
+  ];
+  const average =
+    rating.ratingCount > 0
+      ? (rating.avgRating / rating.ratingCount).toFixed(1)
+      : "0.0";
 
   return (
     <div className="rating-container">
       <h2>Ratings & Reviews</h2>
 
       <div className="rating-main">
-        {/* Left Big Rating Block */}
         <div className="rating-left">
-          <div className="avg">{avgRating}</div>
+          <div className="avg">{average}</div>
           <div className="star">★</div>
-          <p>{totalRatings} Ratings & 0 Reviews</p>
+          <p>{rating.ratingCount} Ratings</p>
         </div>
 
-        {/* Right Rating Bars */}
+        {/* Right */}
         <div className="rating-bars">
           {ratingStats.map((r) => (
             <div className="rating-row" key={r.stars}>
@@ -38,10 +40,13 @@ const RatingSection = () => {
                 <div
                   className="bar-fill"
                   style={{
-                    width: `${(r.count / totalRatings) * 100}%`,
-                    background: r.color,
+                    width: `${
+                      rating.ratingCount
+                        ? (r.count / rating.ratingCount) * 100
+                        : 0
+                    }%`,
                   }}
-                ></div>
+                />
               </div>
 
               <span className="count">{r.count}</span>
@@ -51,7 +56,7 @@ const RatingSection = () => {
       </div>
 
       <p className="review-text">
-        Have you used this product? Be the first to review!
+        Have you used this product? Rate it after delivery.
       </p>
     </div>
   );

@@ -20,7 +20,8 @@ function Product() {
 
     try {
       const response = await axios.get(
-        `http://localhost:8080/product?status=${status}`
+        `http://localhost:8080/product?status=${status}`,
+        { withCredentials: true },
       );
 
       setProducts(response.data);

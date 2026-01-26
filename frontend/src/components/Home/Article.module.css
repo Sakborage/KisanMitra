@@ -15,10 +15,22 @@
 }
 
 /* IMAGE */
-.imageBox img {
+/* IMAGE CONTAINER */
+.imageBox {
   width: 100%;
   height: 180px;
-  object-fit: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  background-color: #f0f0f0; /* optional: placeholder for empty space */
+}
+
+.imageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container nicely without stretching */
+  display: block;
 }
 
 /* CONTENT */

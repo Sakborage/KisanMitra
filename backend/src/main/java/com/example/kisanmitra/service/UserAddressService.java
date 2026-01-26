@@ -27,6 +27,6 @@ public class UserAddressService {
 
         User user=userRepo.findByUsername(username).orElseThrow(()->new RuntimeException("User not found"));
 
-        return userAddressRepo.findByUser(user);
+        return userAddressRepo.findFirst2ByUser(user);
     }
 }

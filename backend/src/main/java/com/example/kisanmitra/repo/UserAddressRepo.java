@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface UserAddressRepo extends JpaRepository<UserAddress,Integer> {
     List<UserAddress> findByUser(User user);
+    List<UserAddress>findFirst2ByUser(User user);
 }

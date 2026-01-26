@@ -32,14 +32,12 @@ public class OrderController {
         return orderService.getOrders();
     }
 
-    @GetMapping("/order/{orderId}")
-    public OrderResponse getSpecificOrder(@PathVariable int orderId){
-        return orderService.getOrderOfUser(orderId);
-
+    @GetMapping("/order/{orderNumber}")
+    public Order getOrderDetails(@PathVariable String orderNumber){
+        System.out.println("API Called For:" +orderNumber);
+        return orderService.getOrderByOrderNumber(orderNumber);
     }
 
-    @GetMapping("/orders")
-    public List<OrderResponse> getAllOrders(@RequestParam(required = false) Order.OrderStatus status){
-        return orderService.getAll(status);
-    }
+
+
 }

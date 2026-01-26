@@ -1,0 +1,130 @@
+.card {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+  align-items: center;
+  position: relative;
+}
+
+.image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.status {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.DELIVERED {
+  color: #018f4a;
+}
+
+.CANCELLED {
+  color: #dc2626;
+}
+
+.SHIPPED {
+  color: #2563eb;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.star {
+  color: #d1d5db;
+  cursor: pointer;
+}
+
+.activeStar {
+  color: #fbbf24;
+  cursor: pointer;
+}
+
+.rateText {
+  margin-left: 10px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.menuWrapper {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.menuIcon {
+  cursor: pointer;
+  color: #555;
+}
+
+.menu {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.cancelBtn {
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: #e53935;
+  font-weight: 600;
+}
+
+.cancelBtn:hover {
+  background-color: #fbe9e7;
+}
+
+.payment {
+  font-size: 13px;
+  color: #6b7280; /* gray */
+  margin-bottom: 6px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.paymentStatus {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.SUCCESS {
+  color: #16a34a; /* green */
+}
+
+.PENDING {
+  color: #f59e0b; /* amber */
+}
+
+.FAILED {
+  color: #dc2626; /* red */
+}

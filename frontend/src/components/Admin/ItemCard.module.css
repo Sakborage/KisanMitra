@@ -5,7 +5,62 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
+
+/* ---------- BLUR EFFECT ---------- */
+.blurWrapper {
+  transition: filter 0.2s ease;
+}
+
+.blurred {
+  filter: blur(1px);
+  pointer-events: none; /* prevent interaction */
+  opacity: 0.7;
+}
+
+/* ---------- OUT OF STOCK OVERLAY ---------- */
+.outOfStockOverlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: rgba(190, 189, 189, 0.75);
+  color: #dc2626;
+
+  padding: 10px 10px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  z-index: 10;
+}
+
+/* ---------- LOW STOCK BADGE ---------- */
+.lowStockBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background: #dc2626;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+
+  padding: 4px 10px;
+  border-radius: 999px;
+
+  z-index: 11;
+}
+
+/* ---------- ACTIONS ALWAYS CLICKABLE ---------- */
+/* .actions {
+  position: relative;
+  z-index: 12;
+} */
 
 .imageWrapper {
   width: 100%;
@@ -98,7 +153,10 @@
 .actions {
   display: flex;
   gap: 12px;
-  margin-top: 14px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .update {

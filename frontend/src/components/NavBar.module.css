@@ -1,4 +1,3 @@
-/* Apply to the whole app, or at least navbar container */
 * {
   box-sizing: border-box;
 }
@@ -13,29 +12,28 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 20px; /* reduced padding */
+  padding: 0 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
-  overflow-x: hidden; /* ensure no horizontal scroll */
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Left Logo */
+/* Logo */
 .logo {
   font-size: 26px;
   font-weight: 700;
   cursor: pointer;
 }
 
-/* Center Navigation */
+/* Nav Links (DESKTOP — unchanged) */
 .navLinks {
   display: flex;
   gap: 25px;
   list-style: none;
   flex: 1;
-  justify-content: center; /* center align menu */
+  justify-content: center;
 }
 
 .navLinks li a {
@@ -50,14 +48,72 @@
   color: #04a84e;
 }
 
-/* Right Cart */
-.cart {
-  font-size: 22px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  margin-left: auto; /* push it to extreme right */
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
-.cart:hover {
-  color: #04a84e;
+.cartIcon,
+.profileIcon {
+  position: relative;
+  font-size: 25px;
+  color: #111;
+  cursor: pointer;
+}
+
+.cartCount {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #018f4a;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ======================
+   MOBILE STYLES
+====================== */
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    padding: 16px 0;
+    display: none;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
 }

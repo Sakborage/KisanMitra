@@ -17,6 +17,11 @@ public class OrderResponse {
     private List<OrderItem> items;
     private OrderAddress address;
     private Payment payment;
+    private String orderNumber;
+    private boolean isRated;
+    private int userRating;
+
+
 
     public Order.OrderStatus getStatus() {
         return status;
@@ -72,5 +77,29 @@ public class OrderResponse {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public boolean isRated() {
+        return isRated;
+    }
+
+    public void setRated(boolean rated) {
+        isRated = rated;
+    }
+
+    public int getUserRating() {
+        return userRating;
+    }
+
+    public void setUserRating(int userRating) {
+        this.userRating = userRating;
     }
 }

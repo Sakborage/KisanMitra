@@ -105,4 +105,13 @@ public class CartItemService {
 
 
     }
+
+    public int getCartItemCount() {
+
+        Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+        String Username= auth.getName();
+
+        User user=userRepo.findByUsername(Username).orElseThrow(()->new RuntimeException("User Not Found"));
+        return cartItemRepo.countByUser(user);
+    }
 }

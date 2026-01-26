@@ -1,6 +1,7 @@
 package com.example.kisanmitra.service;
 
 import com.example.kisanmitra.DTO.OrderResponse;
+import com.example.kisanmitra.DTO.OrderTableDTO;
 import com.example.kisanmitra.DTO.PlaceOrderRequest;
 import com.example.kisanmitra.DTO.PricingConstants;
 import com.example.kisanmitra.model.*;
@@ -11,9 +12,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -33,9 +37,19 @@ public class OrderService {
     @Autowired
     private PaymentRepo paymentRepo;
 
+    @Autowired
+    private ProductRepo productRepo;
+
+    @Autowired
+    private RatingRepo ratingRepo;
+
     private OrderResponse mapToOrderResponse(Order order){
+
+
         OrderResponse res=new OrderResponse();
+
         res.setOrderId(order.getId());
+        res.setOrderNumber(order.getOrderNumber());
         res.setStatus(order.getStatus());
         res.setAddress(order.getAddress());
         res.setPayment(order.getPayment());
@@ -43,6 +57,33 @@ public class OrderService {
         res.setTotalAmount(order.getTotalAmount());
 
         res.setItems(order.getOderItems());
+        return res;
+    }
+
+    private OrderResponse mapToOrderResponse(Order order,User user){
+
+        OrderResponse res=new OrderResponse();
+
+        res.setOrderId(order.getId());
+        res.setOrderNumber(order.getOrderNumber());
+        res.setStatus(order.getStatus());
+        res.setAddress(order.getAddress());
+        res.setPayment(order.getPayment());
+        res.setCreatedAt(order.getCreatedAt());
+        res.setTotalAmount(order.getTotalAmount());
+
+        res.setItems(order.getOderItems());
+
+        Optional<Ratings> ratings=ratingRepo.findByUserAndOrder(user,order);
+
+        if(ratings.isPresent()){
+            res.setRated(true);
+            res.setUserRating(ratings.get().getRatings());
+
+        }else{
+            res.setRated(false);
+            res.setUserRating(-1);
+        }
         return res;
     }
 
@@ -66,10 +107,28 @@ public class OrderService {
 
         order=orderRepo.save(order);
 
+        String date = LocalDate.now()
+                .format(DateTimeFormatter.BASIC_ISO_DATE);
+        order.setOrderNumber(
+                "KM-" + date + "-" + String.format("%06d", order.getId())
+        );
+
+        order=orderRepo.save(order);
+        
         double totalAmount=0;
         List<OrderItem> orderItems=new ArrayList<>();
 
         for(CartItem cartItem:cartItemList){
+
+            Product product=productRepo.findByIdForUpdate(cartItem.getProduct().getId());
+            int reqQnty=cartItem.getQuantity();
+
+            if(product.getStock()<reqQnty){
+                throw new RuntimeException("Less Quantity is Available!");
+            }
+
+            product.setStock(product.getStock()-reqQnty);
+
             OrderItem orderItem=new OrderItem();
             orderItem.setOrder(order);
             orderItem.setProduct(cartItem.getProduct());
@@ -180,8 +239,23 @@ public class OrderService {
 
         }
 
-        order.setStatus(status);
 
+        if (status==Order.OrderStatus.CANCELLED && order.getStatus() != Order.OrderStatus.CANCELLED) {
+
+            for (OrderItem item : order.getOderItems()) {
+
+                Product product = productRepo.findByIdForUpdate(
+                        item.getProduct().getId()
+                );
+
+                product.setStock(
+                        product.getStock() + item.getQuantity()
+                );
+            }
+        }
+
+
+        order.setStatus(Order.OrderStatus.CANCELLED);
 
         if (order.getPayment().getPaymentMethod() != Payment.PaymentMethod.COD) {
             order.getPayment().setStatus(Payment.PaymentStatus.REFUND_PENDING);
@@ -197,7 +271,7 @@ public class OrderService {
         User user=userRepo.findByUsername(username).orElseThrow(()->new RuntimeException("User Not Found"));
         return orderRepo.findByUserOrderByCreatedAtDesc(user)
                 .stream()
-                .map(this::mapToOrderResponse)
+                .map(order->mapToOrderResponse(order,user))
                 .toList();
 
 
@@ -219,17 +293,43 @@ public class OrderService {
             throw new RuntimeException("UnAuthorozed");
         }
 
-        return mapToOrderResponse(order);
+        return mapToOrderResponse(order,user);
     }
 
-    public List<OrderResponse> getAll(Order.OrderStatus status) {
-        List<Order> orders;
-        if(status!=null){
-            orders=orderRepo.findByStatus(status);
-        }else{
-            orders=orderRepo.findAll();
+    public List<OrderTableDTO> getAll() {
+       return orderRepo.findAllAdminOrders();
+    }
+
+    @Transactional
+    public Order updateStatus(int orderId, Order.OrderStatus status) {
+        Order order = orderRepo.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+
+        if (order.getStatus() == Order.OrderStatus.CANCELLED ||
+                order.getStatus() == Order.OrderStatus.DELIVERED) {
+            throw new RuntimeException("Order status cannot be changed");
         }
 
-        return orders.stream().map(this::mapToOrderResponse).toList();
+
+        order.setStatus(status);
+
+        return orderRepo.save(order);
+
+    }
+
+
+    @Transactional
+    public Order updateOrderStatus(String orderNumber, Order.OrderStatus status, Payment.PaymentStatus paymentStatus) {
+       Order order= orderRepo.findByOrderNumber(orderNumber).orElseThrow(
+               ()-> new RuntimeException("Order Not Found"));
+
+       order.setStatus(status);
+       order.getPayment().setStatus(paymentStatus);
+       return order;
+
+    }
+
+    public Order getOrderByOrderNumber(String orderNumber) {
+        return orderRepo.findByOrderNumber(orderNumber).orElseThrow(()-> new RuntimeException("order Not Founnd"));
     }
 }

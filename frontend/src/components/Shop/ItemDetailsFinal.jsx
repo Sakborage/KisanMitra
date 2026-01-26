@@ -11,6 +11,7 @@ function ItemDetailsFinal() {
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [rating, setRatings] = useState(null);
 
   // Fetch main product
   useEffect(() => {
@@ -27,6 +28,19 @@ function ItemDetailsFinal() {
       .catch((err) => {
         console.error("Error fetching product:", err);
         setLoading(false);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/rating/${id}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setRatings(res.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching similar products:", err);
       });
   }, [id]);
 
@@ -52,7 +66,7 @@ function ItemDetailsFinal() {
   return (
     <div>
       <Navbar />
-      <ItemDetail product={product} />
+      <ItemDetail product={product} rating={rating} />
       <SimilarProducts products={similarProducts} />
     </div>
   );

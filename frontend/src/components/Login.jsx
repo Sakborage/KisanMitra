@@ -31,7 +31,17 @@ function Login() {
       await axios.post("http://localhost:8080/login", params, {
         withCredentials: true,
       });
-      navigate("/shop");
+      const res = await axios.get("http://localhost:8080/me", {
+        withCredentials: true,
+      });
+
+      const roles = res.data.roles.map((r) => r.authority);
+
+      if (roles.includes("ROLE_ADMIN")) {
+        navigate("/admin");
+      } else {
+        navigate("/home");
+      }
     } catch (err) {
       setError("Invalid email or password");
     } finally {

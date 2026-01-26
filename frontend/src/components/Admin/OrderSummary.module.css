@@ -1,0 +1,69 @@
+/* right column wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* reusable card */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+/* section titles */
+.card h4 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #063b00;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* normal text */
+.card p {
+  font-size: 13px;
+  color: #374151;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* divider */
+.card hr {
+  border: none;
+  border-top: 1px dashed #e5e7eb;
+  margin: 12px 0;
+}
+
+/* total highlight */
+.total {
+  font-size: 16px;
+  font-weight: 900;
+  color: #1e40af;
+}
+
+/* payment emphasis */
+.card p:nth-child(3) {
+  font-weight: 600;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .card {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}

@@ -49,6 +49,13 @@ public class Product {
     @Column (updatable = false)
     private Instant createdAt;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Ratings> ratings;
+
+    private double avgRating;
+    private int ratingCount;
+
+
     @LastModifiedDate
     private Instant updatedAt;
 
@@ -146,6 +153,22 @@ public class Product {
 
     public void setVendor(String vendor) {
         this.vendor = vendor;
+    }
+
+    public double getAvgRating() {
+        return avgRating;
+    }
+
+    public void setAvgRating(double avgRating) {
+        this.avgRating = avgRating;
+    }
+
+    public int getRatingCount() {
+        return ratingCount;
+    }
+
+    public void setRatingCount(int ratingCount) {
+        this.ratingCount = ratingCount;
     }
 
     @Override
